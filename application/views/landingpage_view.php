@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Notes </title>
+        <title>Basketball Court SCHDLR </title>
+        <link rel="icon" href="assets/images/LOGOO.png"/>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,6 +22,8 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/css/owl.carousel.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css'); ?>">
         <!-- Responsive Stylesheet -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/responsive.css'); ?>">
     </head>
@@ -49,8 +52,8 @@
 	                    <span class="icon-bar"></span>
 	                </button>
 	                <a class="navbar-brand" href="#">
-                        <img class="logo-1" src="assets/images/logo.png" alt="LOGO">
-	                    <img class="logo-2" src="assets/images/logo-2.png" alt="LOGO">
+                        <img class="logo-1" src="assets/images/LOGOORG.png" alt="LOGO">
+	                    <img class="logo-2" src="assets/images/LOGOORG.png" alt="LOGO">
 	                </a>
 	            </div>
 
@@ -58,9 +61,9 @@
 	            <nav class="collapse navbar-collapse" id="navbar">
 	                <ul class="nav navbar-nav navbar-right" id="top-nav">
 	                    <li class="current"><a href="#body">Home</a></li>
-	                    <li><a href="#about">About us</a></li>
-	                    <li><a href="#service">Services</a></li>
-	                    <li><a href="#contact">Contact</a></li>
+	                    <li><a href="#about">Schedule</a></li>
+	                    <li><a href="#service">Calendar</a></li>
+	                    <li><a href="#contact">Contact Us</a></li>
 	                </ul>
 	            </nav><!-- /.navbar-collapse -->
 	        </div><!-- /.container-fluid -->
@@ -71,15 +74,16 @@
 	            <div class="row">
 	                <div class="col-md-6">
 	                    <div class ="block">
-	                        <h1 class="wow fadeInDown" >Basketball Court Scheduler</h1>
-	                        <p class="wow fadeInDown" data-wow-delay = "0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+	                        <h1 class="wow fadeInDown" ><b>Basketball Court Scheduler</b></h1>
+	                        <p class="wow fadeInDown" data-wow-delay = "0.3s">Your TEAM becomes your FAMILY, the BALL becomes your BESTFRIEND, the COURT becomes your HOME, and the GAME becomes your LIFE.</p>
 	                        <div class="wow fadeInDown" data-wow-delay = "0.3s">
-	                        	<a class="btn btn-default btn-home" href="#about" role="button">Get Started</a>
+	                        	<a class="btn btn-default btn-home" href="#about" role="button">Schedule Now!</a>
 	                        </div>
 	                    </div>
 	                </div>
 	                <div class="col-md-6 wow zoomIn">
-	                    <div class="block">
+                            <img src="<?php echo base_url('assets/images/TRIO.png');?>" style="position: absolute; background-repeat: no-repeat; " />
+	                    <!--<div class="block">
 	                        <div class="counter text-center">
 	                            <ul id="countdown_dashboard">
 	                                <li>
@@ -110,10 +114,10 @@
 	                                        <div class="digit">0</div>
 	                                        <span class="dash_title">Seconds</span>
 	                                    </div>
-	                                </li>
+	                                </li> 
 	                            </ul>
 	                        </div>
-	                    </div>
+	                    </div>-->
 	                </div>
 	            </div><!-- .row close -->
 	        </div><!-- .container close -->
@@ -128,31 +132,119 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-12 wow fadeInLeft">
-                    	<div class="sub-heading">
-                    		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ipsa recusandae consequatur veniam, reiciendis odit quia eaque vel eius a.</h3>
-                    	</div>
-                        <div class="block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla-mco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aspernatur.
-                            </p>
-                        </div>
+                    	                    
                     </div>
-                    <div class="col-md-5 col-sm-12 wow fadeInLeft" data-wow-delay="0.3s">
-                        <div class="about-slider">
-                        	<div class="init-slider">
-                        		<div class="about-item">
-                        			<img src="<?php echo base_url('assets/images/about/1.jpg');?>" alt="" class="img-responsive">
-                        		</div>
-                        		<div class="about-item">
-                        			<img src="<?php echo base_url('assets/images/about/2.jpg');?>" alt="" class="img-responsive">
-                        		</div>
-                        		<div class="about-item">
-                        			<img src="<?php echo base_url('assets/images/about/3.jpg');?>" alt="" class="img-responsive">
-                        		</div>
-                        	</div>
-                        </div>
-                    </div>
+                    <div class="col-md-12">
+                <div id="Carousel" class="carousel slide">
+                 
+                <ol class="carousel-indicators">
+                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#Carousel" data-slide-to="1"></li>
+                    <li data-target="#Carousel" data-slide-to="2"></li>
+                </ol>
+                 
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                            <div>
+                	  <div class="col-md-12"><a><img src="assets/images/about/19.jpg" alt="Image" style="width:100%; height: 100%;"></a></div>
+                	</div>    
+                </div>
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/1.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/2.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                     <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/3.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                     <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/4.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                     <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/5.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                     <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/6.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                     <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/7.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                    <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/8.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                    <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/9.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                    <div class="item">
+                	<div class="row">
+                		<div class="col-md-12"><a><img src="assets/images/about/10.jpg" alt="Image" style="max-width:100%;"></a></div>
+                	</div>
+                </div>
+                 
+                </div><!--.carousel-inner-->
+                  <a data-slide="prev" href="#Carousel" class="btn btn-default btn-arrow-left">‹</a>
+                  <a data-slide="next" href="#Carousel" class="btn btn-default btn-arrow-right">›</a>
+                </div><!--.Carousel-->
+                 
+		</div>
+                <div class="container">
+		<h1>CREATE SCHEDULE</h1> <br/>
+                        <input type="hidden" name="post_name" value="<?php echo $this->session->userdata('post_name');?>">
+                        <input type="hidden" name="editors" value="1">
+
+                <div class="form-group row">  
+                     <label class="col-md-2 text-left">FULL NAME</label>  
+                     <div class="col-md-10">
+                         <input type="text" name="title" class="form-control" placeholder="Enter Fullname" required /> 
+                     </div>          
+                </div> 
+                <div class="form-group row">  
+                     <label class="col-md-2 text-left">Address</label>  
+                     <div class="col-md-10">
+                     	<textarea class="form-control" name="body" placeholder="Enter Address" required></textarea>
+                    </div>                 
+                </div>
+                 <div class="form-group row">  
+                     <label class="col-md-2 text-left">Contact Number</label>  
+                     <div class="col-md-10">
+                         <input type="text" name="title" class="form-control" placeholder="Enter Contact Number" required /> 
+                     </div>          
+                </div> 
+                <div class="form-group row">  
+                     <label class="col-md-2 text-left">Email Address</label>  
+                     <div class="col-md-10">
+                         <input type="text" name="title" class="form-control" placeholder="Enter Email Address" required /> 
+                     </div>          
+                </div> 
+                
+                
+				<div class="form-group row" style="margin-left:100px; padding:20px;" > 
+                    <input type="submit" name="insert" value="SUBMIT" class="btn btn-primary btn-lg" /></div>
+      	</div>
+        </div>
                 </div>
             </div>
         </section><!-- #about close -->
@@ -167,7 +259,7 @@
             <div class="container">
                 <div class="row">
                     <div class="heading wow fadeInUp">
-                        <h2>Our service</h2>
+                        <h2>CALENDAR</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <br> dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
                     </div>
                     <div class="col-sm-6 col-md-3 wow fadeInLeft">

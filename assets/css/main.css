@@ -48,7 +48,7 @@ ul {
     margin: 0;
     list-style: none;
 }
-
+img
 a {
     -webkit-transition: all 0.5s ease-in-out 0s;
     -moz-transition: all 0.5s ease-in-out 0s;
@@ -123,7 +123,7 @@ a:active {
 }
 
 .btn-home {
-  background-color: transparent;
+  background-color:#600000 ;
   border: 1px solid #fff;
   border-radius: 0px;
   color: #fff;
@@ -134,8 +134,9 @@ a:active {
 
 .btn-home:hover,
 .btn-home:focus {
-    background-color: #fff;
-    color: #555;
+     border: 1px solid #600000;
+    background-color:#fff;
+    color:#600000;
 }
 
 .btn-border {
@@ -336,8 +337,11 @@ a:active {
 
 
 #hero-area {
-  padding:180px 0;
-    background: rgba(0, 0, 0, 0) linear-gradient(135deg, #fff600 0%, #ff6c00 100%) repeat scroll 0 0;
+  padding:180px 20px;
+    background: url(../images/BG11.jpg);
+     background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 #hero-area:before {
     content: "";
@@ -348,7 +352,10 @@ a:active {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: url(../img/header-overlay.png);
+    background: url(../images/BG11.jpg);
+     background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     opacity: 0.9;
 }
 #hero-area .block {
@@ -360,7 +367,9 @@ a:active {
   font-size: 40px;
   letter-spacing: 6px;
   position: relative;
+  color:black;
 }
+
 #hero-area .block h1:before {
   content: "";
   position: absolute;
@@ -376,7 +385,7 @@ a:active {
 
 
 .navbar-default {
-    padding:20px;
+
 }
 
 
@@ -394,7 +403,7 @@ a:active {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default.animated .navbar-nav > li > a:hover {
-    color: #009ee5;
+    color: black;
 }
 .navbar-default {
     background-color: transparent;
@@ -436,10 +445,12 @@ a:active {
     color: #000;
 }
 .navbar-default .navbar-nav > li.current > a {
-    color: #fff;
+    
+    color: #600000;
 }
 .navbar-default.animated .navbar-nav > li.current > a {
-    color: #ff6c00;
+   background-color:#600000;
+   color:#FFF;
 }
 #hero-area .navbar-default .navbar-nav {
     padding-top: 11px;
@@ -486,18 +497,18 @@ a:active {
     height: 2px;
     background: #fff;
 }
-#hero-area .block {
-}
+
 #hero-area .block p {
-    color: #fff;
+    color:black;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 700;
     line-height: 30px;
 }
 
-#hero-area .block .counter {
-    background: rgba(255, 255, 255, 0.2);
-    padding:18px;
+/*--#hero-area .block .counter {
+    
+    margin-left: 90px;
+    padding:60px;
 }
 
 #hero-area .block .counter h2 {
@@ -509,7 +520,7 @@ a:active {
     text-align: center;
 }
 #hero-area .block .counter ul li {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(40, 0, 0, 0.3);
     color: #fff;
     display: inline-block;
     line-height: 25px;
@@ -531,7 +542,8 @@ a:active {
     position: relative;
     overflow: hidden;
     height: 60px;
-}
+    color: #FFF;
+}--*/
 /*--
     service start
 --*/
@@ -549,7 +561,7 @@ a:active {
 }
 .service .caption h3 {
     margin: 0 0 10px;
-    color: #333333;
+    color: black;
     font-weight: bold;
     font-size: 15px;
     margin-bottom: 20px;
@@ -675,8 +687,38 @@ background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fff6
 /*--
     About start
 --*/
-
-#about h3 {
+.carousel {
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
+}
+/* The controlsy */
+.carousel-control {
+    left: -12px;
+    height: 40px;
+    width: 30px;
+    background: none repeat scroll 0 0 #222222;
+    border: 4px solid #FFFFFF;
+    border-radius: 23px 23px 23px 23px;
+    margin-top: 90px;
+}
+.carousel-control.right {
+	right: -12px;
+}
+/* The indicators */
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: -10px;
+	margin-right: -19px;
+}
+/* The colour of the indicators */
+.carousel-indicators li {
+	background: #cecece;
+}
+.carousel-indicators .active {
+background: #428bca;
+}
+#about h1 {
   font-size: 26px !important;
   font-weight: 300;
   line-height: 36px;

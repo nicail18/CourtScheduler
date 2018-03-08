@@ -20,6 +20,9 @@ class Landingpage_controller extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('landingpage_view');
+		$this->load->model('datas_model');
+		$data['scheds']=$this->datas_model->sched();
+		$data['userdata']=$this->datas_model->user();
+		$this->load->view('landingpage_view',$data);
 	}
 }

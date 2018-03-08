@@ -445,7 +445,7 @@ a:active {
     color: #000;
 }
 .navbar-default .navbar-nav > li.current > a {
-    
+
     color: #600000;
 }
 .navbar-default.animated .navbar-nav > li.current > a {
@@ -506,7 +506,7 @@ a:active {
 }
 
 /*--#hero-area .block .counter {
-    
+
     margin-left: 90px;
     padding:60px;
 }

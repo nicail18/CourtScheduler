@@ -22,7 +22,36 @@ class Landingpage_controller extends CI_Controller {
 	{
 		$this->load->model('datas_model');
 		$data['scheds']=$this->datas_model->sched();
-		$data['userdata']=$this->datas_model->user();
 		$this->load->view('landingpage_view',$data);
+	}
+	public function schedthis(){
+		$this->load->model('datas_model');
+		$data['scheds']=$this->datas_model->sched();
+		foreach($data['scheds']->result() as $row){
+			$current = $row->date;
+		}
+		$name = $this->input->post('name');
+		$address = $this->input->post('address');
+		$contact = $this->input->post('contact');
+		$email = $this->input->post('email');
+		$from = $this->input->post('fromtime');
+		$to = $this->input->post('totime');
+
+    $user = array(
+			'full_name' => $name,
+			'address' => $address,
+			'contact' => $contact,
+			'email' => $email
+		);
+		$schedss = array(
+			'time_from' => $from,
+			'time_to' => $to,
+			'date' => $current,
+			'name' => $name
+		);
+		$this->datas_model->insert_data($schedss,$user);
+		print_r($user);
+		print_r($schedss);
+		print_r($_POST);
 	}
 }

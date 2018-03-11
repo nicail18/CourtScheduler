@@ -11,6 +11,10 @@ class Datas_model extends CI_Model{
 		$query = $this->db->get('use_tbl');
 		return $query;
 	}
+	function insert_data($schedules,$user){
+		$this->db->insert("schedules", $schedules);
+		$this->db->insert("use_tbl", $user);
+	}
 }
 
 ?>

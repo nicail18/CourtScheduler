@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Basketball Court SCHDLR </title>
         <link rel="icon" href="assets/images/LOGOO.png"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -176,40 +177,6 @@
                 </div><!--.Carousel-->
 
 		</div>
-                <div class="container">
-		<h1>CREATE SCHEDULE</h1> <br/>
-                        <input type="hidden" name="post_name" value="<?php echo $this->session->userdata('post_name');?>">
-                        <input type="hidden" name="editors" value="1">
-
-                <div class="form-group row">
-                     <label class="col-md-2 text-left">FULL NAME</label>
-                     <div class="col-md-10">
-                         <input type="text" name="title" class="form-control" placeholder="Enter Fullname" required />
-                     </div>
-                </div>
-                <div class="form-group row">
-                     <label class="col-md-2 text-left">Address</label>
-                     <div class="col-md-10">
-                     	<textarea class="form-control" name="body" placeholder="Enter Address" required></textarea>
-                    </div>
-                </div>
-                 <div class="form-group row">
-                     <label class="col-md-2 text-left">Contact Number</label>
-                     <div class="col-md-10">
-                         <input type="text" name="title" class="form-control" placeholder="Enter Contact Number" required />
-                     </div>
-                </div>
-                <div class="form-group row">
-                     <label class="col-md-2 text-left">Email Address</label>
-                     <div class="col-md-10">
-                         <input type="text" name="title" class="form-control" placeholder="Enter Email Address" required />
-                     </div>
-                </div>
-
-
-				<div class="form-group row" style="margin-left:100px; padding:20px;" >
-                    <input type="submit" name="insert" value="SUBMIT" class="btn btn-primary btn-lg" /></div>
-      	</div>
         </div>
                 </div>
             </div>
@@ -229,11 +196,18 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <br> dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
                     </div>
                     <div>
+                    <form>
                     <div class="card">
                       <div class="card-header">
-                        <h2 id="#test"></h2>
+                        <h2 id="#test"><?php
+                          foreach($scheds->result() as $row){
+                            echo $row->date;
+                            $current = $row->date;
+                            break;
+                          }
+                        ?></h2><br />
                       </div>
-                      <div class="card-body">
+                      <div id="test1" class="card-body">
                         <div class="table-responsive">
                       <table class="table table-striped table-md">
                         <thead>
@@ -247,132 +221,126 @@
                         </tr>
                         </thead>
                         <tbody>
-                          <?php
-                            foreach($scheds->result() as $rows){
-                          ?>
-                          <tr>
 
-                              <td><?php echo $rows->id;?></td>
-                              <td><?php echo $rows->name?></td>
-                              <td><?php echo $rows->time_from;?></td>
-                              <td><?php echo $rows->time_to;?></td>
-                              <td><?php if($rows->availability == 1){
-                                echo 'Available';
+                              <?php
+                              $x=1;
+                              for($i=7;$i<=21;$i++){
+                              echo '<tr>';
+                              echo '<td>'.$x.'</td>';
+
+                              $from=strtotime($i.':00:00');
+                              $to=strtotime(($i+1).':00:00');
+                              $from1 = date('H:i:s',$from);
+                              $to1 = date('H:i:s',$to);
+                              $none =1;
+                                foreach($scheds->result() as $row){
+                                  if(($row->time_from==$from1) && ($row->time_to==$to1) && ($row->date==$current)){
+                              ?>        <td><?php echo $row->name;?></td>
+                              <?php
+                                    $name = $row->name;
+                                    $none=1;
+                                    break;
+                                }
+                                else{
+                                  $none = 0;
+                                }
                               }
-                              else echo 'Not Available';?></td>
-                              <td><a href="#">Sched This</a></td>
-
-                          </tr>
-                          <?php
-                            }
-                          ?>
+                              if($none == 0){
+                                echo '<td>----</td>';
+                              }
+                              ?>
+                              <td><?php echo $i.':00:00'; ?></td>
+                              <td><?php echo ($i+1).':00:00'; ?></td>
+                              <?php
+                                if($none !=0){
+                                      echo '<td>Not Available</td>';
+                                      echo '<td><a href="#" class="btn disabled">Sched This</a></td>';
+                                }
+                                else{
+                                    echo '<td>Available</td>';
+                                    if($x==1){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number1">Sched This</a> </td>';
+                                    }
+                                    elseif($x==2){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number2">Sched This</a> </td>';
+                                    }
+                                    elseif($x==3){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number3">Sched This</a> </td>';
+                                    }
+                                    elseif($x==4){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number4">Sched This</a> </td>';
+                                    }
+                                    elseif($x==5){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number5">Sched This</a> </td>';
+                                    }
+                                    elseif($x==6){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number6">Sched This</a> </td>';
+                                    }
+                                    elseif($x==7){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number7">Sched This</a> </td>';
+                                    }
+                                    elseif($x==8){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number8">Sched This</a> </td>';
+                                    }
+                                    elseif($x==9){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number9">Sched This</a> </td>';
+                                    }
+                                    elseif($x==10){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number10">Sched This</a> </td>';
+                                    }
+                                    elseif($x==11){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number11">Sched This</a> </td>';
+                                    }
+                                    elseif($x==12){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number12">Sched This</a> </td>';
+                                    }
+                                    elseif($x==13){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number13">Sched This</a> </td>';
+                                    }
+                                    elseif($x==14){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number14">Sched This</a> </td>';
+                                    }
+                                    elseif($x==15){
+                                      echo '<td><a href="#contact-form1" class="btn btn-default" id="number15">Sched This</a> </td>';
+                                    }
+                                }
+                                $x=$x+1;
+                              echo '</tr>';
+                              }
+                              ?>
                         </tbody>
                       </table>
                     </div>
                     </div>
                     </div>
-                    <form action="" class="form-horizontal"  role="form">
-                        <fieldset>
-
-                			<div class="form-group">
-                                <label for="dtp_input2" class="col-md-2 control-label">Date Picking</label>
-                                <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                    <input class="form-control" size="16" type="text" id="scheddate" value="" readonly>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                                </div>
-                				<input type="hidden" id="dtp_input2" value="" /><br/>
-                            </div>
-                			<div class="form-group">
-                                <label for="dtp_input3" class="col-md-2 control-label">Time Picking</label>
-                                <div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
-                                    <input class="form-control" size="16" type="text" value="" readonly>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                </div>
-                				<input type="hidden" id="dtp_input3" value="" /><br/>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                  </form>
+                  <form action="<?php echo base_url();?>Landingpage_controller/schedthis" method="post" id="contact-form1">
+                      <h2>Fill this form!</h2>
+                      <h4>Sched</h4>
+                      <p>From</p>
+                      <input name="fromtime" id="from"/>
+                      <p>To</p>
+                      <input name="totime" id="to"/>
+                      <div class="input-field">
+                          <input type="text" class="form-control" placeholder="Your Name" name="name">
+                      </div>
+                      <div class="input-field">
+                          <input type="address" class="form-control" placeholder="Address" name="address">
+                      </div>
+                      <div class="input-field">
+                          <input type="email" class="form-control" placeholder="Email Address" name="email">
+                      </div>
+                      <div class="input-field">
+                          <input type="text" class="form-control" placeholder="Contact" name="contact">
+                      </div>
+                      <input class="btn btn-success" id="schedsubmit" type="submit">
+                  </form>
             </div><!-- .container close -->
         </section><!-- #service close -->
-
-        <section id="call-to-action" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 wow text-center">
-                        <div class="block">
-                            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Your Email Address">
-                                <button class="btn btn-default btn-submit" type="submit">Get Notified</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- #call-to-action close -->
 
         <!--
         Contact start
         ==================== -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="block">
-                            <div class="heading wow fadeInUp">
-                                <h2>Get In Touch</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <br> dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-5 wow fadeInUp">
-						<div class="block text-left">
-							<div class="sub-heading">
-								<h4>Contact Address</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quos maxime voluptate doloribus, voluptatum nemo vel ipsa in eligendi, ullam. Ducimus consequuntur labore error hic.</p>
-							</div>
-							<address class="address">
-                                <hr>
-								<p>Dhanmondi 32,<br> Dhaka,<br> Bangladesh</p>
-                                <hr>
-                                <p><strong>E:</strong>&nbsp;hello@foundry.net<br>
-                                <strong>P:</strong>&nbsp;+614 3948 2726</p>
-
-
-							</address>
-						</div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 wow fadeInUp" data-wow-delay="0.3s">
-                    	<div class="form-group">
-                    	    <form action="#" method="post" id="contact-form">
-                    	        <div class="input-field">
-                    	            <input type="text" class="form-control" placeholder="Your Name" name="name">
-                    	        </div>
-                    	        <div class="input-field">
-                    	            <input type="email" class="form-control" placeholder="Email Address" name="email">
-                    	        </div>
-                    	        <div class="input-field">
-                    	            <textarea class="form-control" placeholder="Your Message" rows="3" name="message"></textarea>
-                    	        </div>
-                    	        <button class="btn btn-send" type="submit">Send me</button>
-                    	    </form>
-
-                    	    <div id="success">
-                    	        <p>Your Message was sent successfully</p>
-                    	    </div>
-                    	    <div id="error">
-                    	        <p>Your Message was not sent successfully</p>
-                    	    </div>
-                    	</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section clas="wow fadeInUp">
         	<div class="map-wrapper">
@@ -391,6 +359,77 @@
             </div>
         </footer>
 
+        <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+              $("#number1").click(function(){
+                  $("#from").attr('value','7:00:00');
+                  $("#to").attr('value','8:00:00');
+              });
+              $("#number2").click(function(){ 
+                  $("#from").attr('value','8:00:00');
+                  $("#to").attr('value','9:00:00');
+              });
+              $("#number3").click(function(){
+                  $("#from").attr('value','9:00:00');
+                  $("#to").attr('value','10:00:00');
+              });
+              $("#number4").click(function(){
+                  $("#from").attr('value','10:00:00');
+                  $("#to").attr('value','11:00:00');
+              });
+              $("#number5").click(function(){
+                  $("#from").attr('value','11:00:00');
+                  $("#to").attr('value','12:00:00');
+              });
+              $("#number6").click(function(){
+                  $("#from").attr('value','12:00:00');
+                  $("#to").attr('value','13:00:00');
+              });
+              $("#number7").click(function(){
+                  $("#from").attr('value','13:00:00');
+                  $("#to").attr('value','14:00:00');
+              });
+              $("#number8").click(function(){
+                  $("#from").attr('value','14:00:00');
+                  $("#to").attr('value','15:00:00');
+              });
+              $("#number9").click(function(){
+                  $("#from").attr('value','15:00:00');
+                  $("#to").attr('value','16:00:00');
+              });
+              $("#number10").click(function(){
+                  $("#from").attr('value','16:00:00');
+                  $("#to").attr('value','17:00:00');
+              });
+              $("#number11").click(function(){
+                  $("#from").attr('value','17:00:00');
+                  $("#to").attr('value','18:00:00');
+              });
+              $("#number12").click(function(){
+                  $("#from").attr('value','18:00:00');
+                  $("#to").attr('value','19:00:00');
+              });
+              $("#number13").click(function(){
+                  $("#from").attr('value','19:00:00');
+                  $("#to").attr('value','20:00:00');
+              });
+              $("#number14").click(function(){
+                  $("#from").attr('value','20:00:00');
+                  $("#to").attr('value','21:00:00');
+              });
+              $("#number15").click(function(){
+                  $("#from").attr('value','21:00:00');
+                  $("#to").attr('value','22:00:00');
+              });
+              $("#contact-form1").submit(function(e){
+                var from = $("#from").val();
+                var to = $("#to").val();
+                alert(from);
+                alert(to);
+              })
+          });
+        </script>
 
         <!-- Js -->
         <script src="<?php echo base_url('assets/js/vendor/modernizr-2.6.2.min.js'); ?>"></script>
@@ -406,49 +445,6 @@
         <script src="<?php echo base_url('assets/js/plugins.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/wow.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
-        <script  src="<?php echo base_url('assets/js/jquery-1.8.3.min.js');?>" ></script>
-        <script  src="<?php echo base_url('assets/js/bootstrap-datetimepicker.js');?>" ></script>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $("#scheddate").change(function(){
-              var scheds = $("#scheddate").val();
-              $("#test").html(scheds);
-            });
-          });
-        </script>
-        <script type="text/javascript">
-            /*$('.form_datetime').datetimepicker({
-                //language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-        		autoclose: 1,
-        		todayHighlight: 1,
-        		startView: 2,
-        		forceParse: 0,
-                showMeridian: 1
-            });*/
-        	$('.form_date').datetimepicker({
-                language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-        		autoclose: 1,
-        		todayHighlight: 1,
-        		startView: 2,
-        		minView: 2,
-        		forceParse: 0
-            });
-        	$('.form_time').datetimepicker({
-                language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-        		autoclose: 1,
-        		todayHighlight: 1,
-        		startView: 1,
-        		minView: 0,
-        		maxView: 1,
-        		forceParse: 0
-            });
-        </script>
 
     </body>
 </html>
